@@ -25,17 +25,17 @@ yarn-error.log*
 
   
 .idea
-**/.firebase
-**/.firebaserc
-**/.runtimeconfig.json
+.firebase
+.firebaserc
+.runtimeconfig.json
 lerna-debug.log
 *~
 service-account-credentials.json
-**/package-lock.json
-**/ui-debug.log
-**/database-debug.log
-**/firebase-debug.log
-**/pubsub-debug.log
-**/tsconfig-compile.json
+package-lock.json
+ui-debug.log
+database-debug.log
+firebase-debug.log
+pubsub-debug.log
+tsconfig-compile.json
 yarn.lock
 pnpm-lock.yaml
