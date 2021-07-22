@@ -14,7 +14,7 @@ function App() {
 
   const sendMessage = (event) => {
     event.preventDefault();
-    setMessages([...messages, input]);
+    setMessages([...messages, {username: username, text: input}]);
     setInput('');
   };
 
@@ -34,7 +34,7 @@ function App() {
       {/* messages */}
       {
         messages.map(message => (
-          <Message name={username} text={message} />
+          <Message name={message.username} text={message.text} />
         ))
       }
     </div>
