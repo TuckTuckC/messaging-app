@@ -34,7 +34,7 @@ function App() {
       {/* messages */}
       {
         messages.map(message => (
-          <Message name={message.username} text={message.text} />
+          <Message name={username} message={message} />
         ))
       }
     </div>
