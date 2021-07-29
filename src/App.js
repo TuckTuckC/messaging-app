@@ -4,6 +4,8 @@ import Message from './Message'
 import './App.css';
 import db from './firebase';
 import firebase from 'firebase';
+import FlipMove from 'react-flip-move';
+import { classBody } from '@babel/types';
 
 function App() {
   const [input, setInput] = useState('');
@@ -11,15 +13,17 @@ function App() {
   const [username, setUsername] = useState('');
 
   useEffect(() => {
-    db.collection('messages').onSnapshot(snapshot => {
-      setMessages(snapshot.docs.map(doc => doc.data()))
-    })
+    db.collection('messages')
+    .orderBy('timestamp', 'desc')
+    .onSnapshot(snapshot => {
+      setMessages(snapshot.docs.map(doc => ({id: doc.id, message: doc.data()})))
+    });
   }, [] )
-
+  
   useEffect(() => {
     setUsername(prompt('Please enter a name'));
   }, [] );
-
+  
   const sendMessage = (event) => {
     event.preventDefault();
     
@@ -37,7 +41,7 @@ function App() {
       <h1>Sup Everybody</h1>
       <h2>Welcome {username}</h2>
 
-      <form>
+      <form className='app__form'>
         <FormControl>
           <InputLabel>Enter a message...</InputLabel>
           <Input value={input} onChange={event => setInput(event.target.value)} />
@@ -45,12 +49,15 @@ function App() {
         </FormControl>
       </form>
 
-      {/* messages */}
+      <FlipMove>
       {
-        messages.map(message => (
-          <Message name={username} message={message} />
+        messages.map(({id, message}) => (
+          <Message key={id} name={username} message={message} />
         ))
       }
+      </FlipMove>
+
+      {/* messages */}
     </div>
   );
 }
