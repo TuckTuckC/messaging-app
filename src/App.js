@@ -1,13 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import { Button, FormControl, InputLabel, Input } from '@material-ui/core';
-import Message from './Message'
+import Message from './Message';
 import './App.css';
 import db from './firebase';
 import firebase from 'firebase';
 import FlipMove from 'react-flip-move';
 import { classBody } from '@babel/types';
-import SendIcon from '@material-ui/icons/Send'
+import SendIcon from '@material-ui/icons/Send';
 import { IconButton } from '@material-ui/core';
+import {createTheme} from '@material-ui/core/styles';
 
 function App() {
   const [input, setInput] = useState('');
@@ -44,9 +45,8 @@ function App() {
       <h2>Welcome {username}</h2>
 
       <form className='app__form'>
-        <FormControl>
-          <InputLabel>Enter a message...</InputLabel>
-          <Input value={input} onChange={event => setInput(event.target.value)} />
+        <FormControl className='app__formControl'>
+          <Input placeholder='Enter a message...' className='input' value={input} onChange={event => setInput(event.target.value)} />
 
           <IconButton disabled={!input} variant='contained' color='primary' type='submit' onClick={sendMessage}>
             <SendIcon />

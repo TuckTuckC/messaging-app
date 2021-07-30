@@ -11,3 +11,18 @@
   width: 100%;
   margin: 20px;
 }
+/* 
+.input {
+  color: #ff5050 !important;
+  border-bottom: #ff5050 !important;
+} */
+
+.app__formControl {
+  padding: 20px;
+  position: fixed;
+  bottom: 0;
+  z-index: 1;
+  background-color: #e9e9eb;
+  width: 100%;
+  margin: 20px;
+}
