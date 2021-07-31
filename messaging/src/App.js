@@ -41,7 +41,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Sup Everybody</h1>
+      <h1>Easy Message</h1>
       <h2>Welcome {username}</h2>
 
       <form className='app__form'>
